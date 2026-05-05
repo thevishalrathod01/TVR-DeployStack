@@ -9,7 +9,7 @@ function Dashboard() {
   const token = localStorage.getItem("token");
 
   const fetchServices = () => {
-    fetch("http://localhost:5000/api/services", {
+    fetch("https://tvr-deploystack.onrender.com/api/services", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -27,7 +27,7 @@ function Dashboard() {
     e.preventDefault();
 
     if (editId) {
-      await fetch(`http://localhost:5000/api/services/${editId}`, {
+      await fetch(`https://tvr-deploystack.onrender.com/api/services/${editId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -37,7 +37,7 @@ function Dashboard() {
       });
       setEditId(null);
     } else {
-      await fetch("http://localhost:5000/api/services", {
+      await fetch("https://tvr-deploystack.onrender.com/api/services", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -53,7 +53,7 @@ function Dashboard() {
   };
 
   const deleteService = async (id) => {
-    await fetch(`http://localhost:5000/api/services/${id}`, {
+    await fetch(`https://tvr-deploystack.onrender.com/api/services/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,
